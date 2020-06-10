@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<canvas id="canvas" width="400" height="400">
+Your browser does not support the HTML canvas tag.
+</canvas>
+
+<input id="eatButton" type="button" value="Eat Pizza" onclick="eat_pizza();" />
+
+</body>
+
+<script>
+    var slices = 8;
+    var canvas = document.getElementById('canvas');
+
+    eat_pizza();
+    
+    function eat_pizza() {
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = 'red';
+            ctx.beginPath();
+            ctx.arc(200, 200, 150, 0, Math.PI * 2, true);
+            ctx.fill();
+
+            ctx.fillStyle = 'yellow';
+            ctx.beginPath();
+            for (var i = 0; i < 3; i++) {
+                for (var j = 2; j < 4; j++) {
+                    ctx.moveTo(180 + Math.sin(5*i*j)*60 + 10 + j*2, 50 + j*j*20 + i*20);
+                    ctx.arc(180 + Math.sin(5*i*j)*60 + j*2, 50 + j*j*20 + i*20, 10, 0, Math.PI * 2, true);
+                }
+            }
+            ctx.fill();
+
+            if (slices < 8) {
+                ctx.fillStyle = 'blue';
+                ctx.beginPath();
+                if (slices == 0) {
+                    slices = 8;
+                }
+                ctx.arc(200, 200, 150, 0, Math.PI * 2 * slices / 8, true);
+                ctx.lineTo(200, 200);
+                ctx.fill();
+                if (slices == 8) {
+                    slices = 9;
+                }
+            }
+
+            slices--;
+        }
+    }
+</script>
+
+</html>
+
