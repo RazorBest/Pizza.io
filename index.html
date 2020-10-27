@@ -1,61 +1,24 @@
-<!DOCTYPE html>
-<html>
-
-<body>
-
-<canvas id="canvas" width="400" height="400">
-Your browser does not support the HTML canvas tag.
-</canvas>
-
-<input id="eatButton" type="button" value="Eat Pizza" onclick="eat_pizza();" />
-
-</body>
-
-<script>
-    var slices = 8;
-    var canvas = document.getElementById('canvas');
-
-    eat_pizza();
+<html><head><title>Despre Corbi</title></head>
+<body bgcolor="black">
+<font color="white">
+<H1>Corbul</H1>
+</font>
+<HR>
+    <font size="6" color="green" align="center" face="arial">
+    <br> Cum sa prinzi un corb
+    <br> 1. Prindem un soarece si il omoram
+    <br> 2. Construim o capcana pentru corb
+    <br> 3. Punem soarecele ca momeala
+    <br> 4. Prindem corbul si avem grija sa nu-l ranim
+    </font>
+    <font size="6" color="red" align="center" face="arial">  
+    <br> 5. Daca-l ranesti, cerul o sa te vaneze
+    </font>
     
-    function eat_pizza() {
-        if (canvas.getContext) {
-            var ctx = canvas.getContext('2d');
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = 'red';
-            ctx.beginPath();
-            ctx.arc(200, 200, 150, 0, Math.PI * 2, true);
-            ctx.fill();
-
-            ctx.fillStyle = 'yellow';
-            ctx.beginPath();
-            for (var i = 0; i < 3; i++) {
-                for (var j = 2; j < 4; j++) {
-                    ctx.moveTo(180 + Math.sin(5*i*j)*60 + 10 + j*2, 50 + j*j*20 + i*20);
-                    ctx.arc(180 + Math.sin(5*i*j)*60 + j*2, 50 + j*j*20 + i*20, 10, 0, Math.PI * 2, true);
-                }
-            }
-            ctx.fill();
-
-            if (slices < 8) {
-                ctx.fillStyle = 'white
-                ctx.beginPath();
-                if (slices == 0) {
-                    slices = 8;
-                }
-                ctx.arc(200, 200, 152, 0, Math.PI * 2 * slices / 8, true);
-                ctx.lineTo(200, 200);
-                ctx.fill();
-                if (slices == 8) {
-                    slices = 9;
-                }
-            }
-
-            slices--;
-        }
-    }
-</script>
-
-</html>
-
+<font face="arial" size="5" color="red">
+<pre>   Gen: Corvus
+        Familie: Corvidae
+        Suprafamilie: Corvoidea
+</pre></font>
+</body></html>
